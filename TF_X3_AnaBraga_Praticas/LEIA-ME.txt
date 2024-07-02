@@ -131,8 +131,8 @@ As linhas são as seguintes
 **MUDE APENAS O NOME '<suaTabela>' para sua ocasião.
 
 #### dos_mysql.js
-Linha 25 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
-Linha 36 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+Linha 26 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+Linha 37 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
 
 
 #### ddos_mysql.js
