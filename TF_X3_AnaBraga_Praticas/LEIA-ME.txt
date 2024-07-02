@@ -77,3 +77,116 @@ Abra seu navegador e acesse a aplicação cliente em `http://localhost:3000` (ou
 Agora você deve estar pronto para instalar e executar o projeto em seu ambiente local. Siga cuidadosamente cada passo e garanta que todas as dependências e configurações estejam corretas.
 
 Se preferir acesse https://github.com/dansousamelo/sql_injection para visualizar o repositório completo da aplicação.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Instruções de Instalação do Projeto de SQL Injection
+
+## Pré-requisitos
+
+Antes de iniciar a instalação, certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
+
+1. **Node.js - npm (versão 10.7.0)**: Para instalar e gerenciar as dependências.
+2. **Express + Módulo MySQL**: Para fazer a conexão e as querys no banco escolhido.
+3. **Postman**: Para fazer requisições nas rotas e substituir o front-end.
+
+ps: Com o npm instalado basta apenas dar o comando `npm i` para instalar as dependências do tópico 2 (express + mysql module).
+
+## Opcional
+
+1. **Nodemon**: Para facilitar testes.
+
+Instale apenas por decisão própria. O motivo dele é a facilidade de fazer testes rápidos como demonstrado no vídeo.
+
+## Passos para Instalação
+
+### 1. Instale as Dependências 
+
+Navegue até o diretorio /projeto_DoS_DDoS e execute:
+
+```bash
+npm i
+```
+
+Em caso de sucesso uma nova pasta será apresentada com nome de 'node_modules' e todas as dependências de código (express + mysql module) estão instaladas.
+
+### 2. Conecte-se ao seu banco 
+
+Em ambos os arquivos de simulação (dos_mysql.js, ddos_mysql.js) será necessária a conexão em seu banco escolhido.
+Para isso mude as seguintes linhas de acordo com sua ocasião.
+
+const connection = mysql.createConnection({
+    host: '<SeuHost>',
+    user: '<SeuUser>',
+    password: '<SuaSenha>',
+    database: '<SeuBD>',  //Caso for usar o financial, declare aqui o nome de acordo com a base de dados
+    port: 3306 //Porta padrão mysql, altere se for utilizar outra
+});
+
+### 3. Configure as rotas
+
+No vídeo da simulação é feito o uso da base de dados financial, mas para a simulação ser mais abrangente a qualquer base, algumas alterações devem ser feitas.
+Mude as querys de acordo com a tabela de sua preferência e seu banco populado.
+As linhas são as seguintes
+**MUDE APENAS O NOME '<suaTabela>' para sua ocasião.
+
+#### dos_mysql.js
+Linha 25 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+Linha 36 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+
+
+#### ddos_mysql.js
+Linha 23 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+Linha 46 - connection.query('SELECT * FROM <suaTabela>', (err, results) => {
+
+
+### 4. Rode um dos projetos 
+O comando para rodar os projetos são:
+
+#### dos_mysql.js
+node dos_mysql.js
+
+#### ddos_mysql.js
+node ddos_mysql.js
+
+### 5. Rotas Postman
+
+Para ter a percepção do usuário comum use as rotas e faça GET, como mostrado no vídeo.
+As rotas são: 
+
+#### dos_mysql.js
+http://localhost:3000/dados
+
+
+#### ddos_mysql.js
+http://localhost:8007/dados
+
+### 5. Teste e faça mudanças!
+
+Agora que está tudo de acordo para sua base escolhida faça testes, chame as rotas e veja o tempo de resposta de cada requisição.
+
+Testes:
+#### dos_mysql.js
+No DoS basta diminuir o delay com que as requisições serão feitas na função 'setInterval'.
+ps: Assim que rodar o projeto o DoS já estará em funcionamento porém com delay muito alto que não afetará o usuário.
+
+Linha 44 - }, <100>); // O 100 aqui representa em milissegundos o delay, diminua para 1 e faça requisições.
+
+ps: Com nodemon basta alterar e dar o comando 'ctrl+s' que o servidor reinicia. Caso não esteja usando, salve o arquivo e rode o 'node dos_mysql.js' novamente.
+
+#### ddos_mysql.js
+
+Para iniciar o ddos é necessário tirar as "//"  da seguinte linha:
+Linha 59 - // startDDoS();
+
+ps: O motivo do DDoS começar por um "gatilho" é devido a sua potência em derrubar o serviço, por isso para conseguir checar a rota foi feito esse gatilho.
+
+Para aumentar a força do DDoS basta aumentar o tempo da função SetInterval para que todas as threads tenham tempo de rodar suas 1000 requisições.
+Linha 54 - }, <100>); // Aumente o 100 para um tempo maior assim as workers terão mais tempo de fazer requisições. 
+
+
+## Conclusão
+Esses pequenos trechos de código conseguem demonstrar o que ocorre em um DoS e DDoS.
+O código também encontra-se no repositório: https://github.com/MtsSrs/simulacao_bd.
+O vídeo produzido pela equipe demonstra o funcionamento deste código dentro da base financial.
+Link para o vídeo (minuto 10:20): https://www.youtube.com/watch?v=gNbc4pZQY_E
