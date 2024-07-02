@@ -1,0 +1,79 @@
+
+
+# Instruções de Instalação do Projeto de SQL Injection
+
+## Pré-requisitos
+
+Antes de iniciar a instalação, certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
+
+1. **Node.js e npm (versão 18.16.0)**: Para instalar e gerenciar as dependências da interface.
+2. **Python3 e pip3**: Para instalar e gerenciar as dependências do servidor.
+3. **Uvicorn**: Para rodar o servidor FastAPI.
+
+## Passos para Instalação
+
+### 1. Instale as Dependências da Interface (Front-end)
+
+Navegue até o diretório `client` e instale as dependências necessárias usando o npm:
+
+```bash
+cd client
+npm install --legacy-peer-deps
+```
+
+### 2. Instale as Dependências do Servidor (Back-end)
+
+Navegue até o diretório `server` e instale as dependências do Python listadas no arquivo `requirements.txt`:
+
+```bash
+cd server
+pip3 install -r requirements.txt
+```
+
+### 3. Configure as Variáveis de Ambiente
+
+Crie um arquivo `.env` no diretório `server` com o seguinte conteúdo, preenchendo as informações do seu banco de dados:
+
+```
+DB_HOST=<seu_host>
+DB_USER=<seu_usuario>
+DB_PASSWORD=<sua_senha>
+DB_NAME=HomicideDB
+```
+
+### 4. Configure o Banco de Dados
+
+Certifique-se de que o banco de dados `HomicideDB` esteja criado e acessível com as credenciais fornecidas no arquivo `.env`.
+
+### 5. Popule o Banco de Dados
+
+Use os scripts SQL fornecidos no diretório `database` para criar e popular as tabelas necessárias. Execute os arquivos `Fisico_DanielVeras.sql`, `Popula_DanielVeras.md` (contém o link para o arquivo) no seu banco de dados. Além disso temos o arquivo `SQLInjection.sql`, esse arquivo contém exemplos de sql injection para utilizar de exemplo na interface do usuário - frontend.
+
+### 6. Inicie o Servidor
+
+Navegue até o diretório `server` e inicie o servidor usando Uvicorn:
+
+```bash
+cd server
+uvicorn main:app --reload
+```
+
+### 7. Inicie o Cliente
+
+Navegue até o diretório `client` e inicie o cliente usando o npm:
+
+```bash
+cd client
+npm run dev
+```
+
+### 8. Acesse a Aplicação
+
+Abra seu navegador e acesse a aplicação cliente em `http://localhost:3000` (ou na porta especificada pelo seu ambiente de desenvolvimento). A API estará acessível em `http://localhost:8000`.
+
+
+## Conclusão
+
+Agora você deve estar pronto para instalar e executar o projeto em seu ambiente local. Siga cuidadosamente cada passo e garanta que todas as dependências e configurações estejam corretas.
+
+Se preferir acesse https://github.com/dansousamelo/sql_injection para visualizar o repositório completo da aplicação.
