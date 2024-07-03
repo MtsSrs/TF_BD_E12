@@ -75,6 +75,8 @@ Abra seu navegador e acesse a aplicação cliente em `http://localhost:3000` (ou
 Agora você deve estar pronto para instalar e executar o projeto em seu ambiente local. Siga cuidadosamente cada passo e garanta que todas as dependências e configurações estejam corretas.
 
 Se preferir acesse https://github.com/dansousamelo/sql_injection para visualizar o repositório completo da aplicação.
+O vídeo produzido pela equipe demonstra o funcionamento deste código.
+Link para o vídeo (minuto 05:30): https://www.youtube.com/watch?v=gNbc4pZQY_E
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
