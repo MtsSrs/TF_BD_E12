@@ -1,5 +1,3 @@
-
-
 # Instruções de Instalação do Projeto de SQL Injection
 
 ## Pré-requisitos
@@ -80,7 +78,7 @@ Se preferir acesse https://github.com/dansousamelo/sql_injection para visualizar
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Instruções de Instalação do Projeto de SQL Injection
+# Instruções de Instalação do Projeto de DoS e DDoS
 
 ## Pré-requisitos
 
